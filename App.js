@@ -37,12 +37,12 @@ export default function App() {
 			<NavigationContainer>
 				<Tab.Navigator
 					initialRouteName="Map"
-					shifting={false}
+					shifting={true}
 					barStyle={styles.barBottom}
 					activeColor="#d41d22"
 					inactiveColor="#5c96de"
 				>
-					<Tab.Screen
+					{/* <Tab.Screen
 						name="News"
 						component={NewsScreen}
 						options={{
@@ -51,7 +51,7 @@ export default function App() {
 								<Ionicons name="newspaper-outline" size={24} color={color} />
 							),
 						}}
-					/>
+					/> */}
 					<Tab.Screen
 						name="Contacts"
 						component={ContactsScreen}
@@ -59,7 +59,7 @@ export default function App() {
 							tabBarLabel: 'Сообщить',
 							tabBarIcon: ({ color }) => (
 								<MaterialCommunityIcons
-									name="pencil-box-multiple-outline"
+									name="phone-in-talk"
 									size={24}
 									color={color}
 								/>
@@ -70,7 +70,7 @@ export default function App() {
 						name="Map"
 						component={MapScreen}
 						options={{
-							tabBarLabel: 'Карта',
+							tabBarLabel: 'Отметить на карте',
 							tabBarIcon: ({ color }) => (
 								<MaterialCommunityIcons
 									name="map-marker-radius"
@@ -80,7 +80,7 @@ export default function App() {
 							),
 						}}
 					/>
-					<Tab.Screen
+					{/* <Tab.Screen
 						name="Team"
 						component={TeamScreen}
 						options={{
@@ -94,7 +94,7 @@ export default function App() {
 								/>
 							),
 						}}
-					/>
+					/> */}
 					<Tab.Screen
 						name="About"
 						component={AboutScreen}

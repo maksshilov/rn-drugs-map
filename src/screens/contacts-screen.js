@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Linking, StyleSheet, Text, View } from 'react-native'
 import { FlatList, ScrollView, TextInput } from 'react-native-gesture-handler'
+import { FontAwesome5 } from '@expo/vector-icons'
 
 export const ContactsScreen = () => {
 	return (
@@ -10,36 +11,46 @@ export const ContactsScreen = () => {
 			</Text>
 			<Text style={styles.text}>
 				&#10063; дежурная часть ОМВД по г.Обнинску:{'\n'}
+				<FontAwesome5 name="phone-alt" size={18} color="black" />
+				&nbsp;&nbsp;&nbsp;
 				<Text onPress={() => Linking.openURL(`tel:${84843949802}`)} style={styles.textBold}>
 					8 (484) 394-98-02
 				</Text>
 			</Text>
 			<Text style={styles.text}>
 				&#10063; отделение по борьбе с незаконным оборотом наркотиков:{'\n'}
+				<FontAwesome5 name="phone-alt" size={18} color="black" />
+				&nbsp;&nbsp;&nbsp;
 				<Text style={styles.textBold} onPress={() => Linking.openURL(`tel:${84843949850}`)}>
 					8 (484) 394-98-50{'\n'}
 				</Text>
+				<FontAwesome5 name="phone-alt" size={18} color="black" />
+				&nbsp;&nbsp;&nbsp;
 				<Text style={styles.textBold} onPress={() => Linking.openURL(`tel:${84843949842}`)}>
 					8 (484) 394-98-42
 				</Text>
 			</Text>
 			<Text style={styles.text}>
 				&#10063; ФГБУЗ КБ№8 ФМБА России:{'\n'}
+				<FontAwesome5 name="phone-alt" size={18} color="black" />
+				&nbsp;&nbsp;&nbsp;
 				<Text style={styles.textBold} onPress={() => Linking.openURL(`tel:${84843960072}`)}>
 					8 (484) 396-00-72
 				</Text>
 			</Text>
 			<Text style={styles.text}>
 				&#10063; детский телефон доверия:{'\n'}
+				<FontAwesome5 name="phone-alt" size={18} color="black" />
+				&nbsp;&nbsp;&nbsp;
 				<Text style={styles.textBold} onPress={() => Linking.openURL(`tel:${88002000122}`)}>
 					8 (800) 200-01-22
 				</Text>
 			</Text>
-			<TextInput style={styles.input} placeholder="Имя" />
+			{/* <TextInput style={styles.input} placeholder="Имя" />
 			<TextInput style={styles.input} placeholder="Электронная почта" />
 			<TextInput style={styles.input} placeholder="Телефон" />
 			<TextInput style={styles.input} placeholder="Сообщение" multiline />
-			<Button title="Отправить" color="#d41d22" style={styles.btn} />
+			<Button title="Отправить" color="#d41d22" style={styles.btn} /> */}
 		</ScrollView>
 	)
 }
@@ -60,16 +71,18 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	text: {
-		marginBottom: 10,
+		marginBottom: 30,
 		fontWeight: 'normal',
 		fontFamily: 'open-regular',
 		color: '#000',
 		fontSize: 15,
+		textAlign: 'center',
 	},
 	textBold: {
+		fontSize: 18,
 		fontFamily: 'open-bold',
 		textDecorationLine: 'underline',
-		textDecorationStyle: 'dashed',
+		// textDecorationStyle: 'dashed',
 	},
 	input: {
 		width: '100%',
