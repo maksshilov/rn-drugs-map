@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Drugs Map",
+    "slug": "rn-drugs-map",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/adaptive-icon-new.png",
+    "splash": {
+      "image": "./assets/splash-screen-new.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package":"com.maksshilov.drugs_map",
+      "versionCode":1,
+      "permissions":["READ_EXTERNAL_STORAGE", "ACCESS_FINE_LOCATION"],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon-new.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
