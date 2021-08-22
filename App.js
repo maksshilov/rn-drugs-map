@@ -1,16 +1,18 @@
 import 'react-native-gesture-handler'
 import React from 'react'
 import AppLoading from 'expo-app-loading'
+import * as Permissions from 'expo-permissions'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet } from 'react-native'
-import { bootstrap } from './src/bootstrap'
 import { NavigationContainer } from '@react-navigation/native'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
+
+import { bootstrap } from './src/bootstrap'
+import { ContactsScreen } from './src/screens/contacts-screen'
 import { MapScreen } from './src/screens/map-screen'
 import { AboutScreen } from './src/screens/about-screen'
 import { Header } from './src/components/Header'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
-import { ContactsScreen } from './src/screens/contacts-screen'
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 
 export default function App() {
 	const [isReady, setIsReady] = React.useState(false)

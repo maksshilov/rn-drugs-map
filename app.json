@@ -22,7 +22,7 @@
     "android": {
       "package":"com.maksshilov.drugs_map",
       "versionCode":1,
-      "permissions":["READ_EXTERNAL_STORAGE", "ACCESS_FINE_LOCATION"],
+      "permissions":["ACCESS_FINE_LOCATION"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon-new.png",
         "backgroundColor": "#FFFFFF"
