@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler'
 import React from 'react'
-import AppLoading from 'expo-app-loading'
-import * as Permissions from 'expo-permissions'
+import * as Location from 'expo-location'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
@@ -13,20 +12,51 @@ import { ContactsScreen } from './src/screens/contacts-screen'
 import { MapScreen } from './src/screens/map-screen'
 import { AboutScreen } from './src/screens/about-screen'
 import { Header } from './src/components/Header'
-
-// last
+import * as SplashScreen from 'expo-splash-screen'
 
 export default function App() {
-	const [isReady, setIsReady] = React.useState(false)
+	const [appIsReady, setAppIsReady] = React.useState(false)
+	const [location, setLocation] = React.useState(false)
 
-	if (!isReady) {
-		return (
-			<AppLoading
-				startAsync={bootstrap}
-				onFinish={() => setIsReady(true)}
-				onError={(err) => console.log(err)}
-			></AppLoading>
-		)
+	React.useEffect(() => {
+		async function prepare() {
+			try {
+				// Keep the splash screen visible while we fetch resources
+				await SplashScreen.preventAutoHideAsync()
+				// Pre-load fonts, make any API calls you need to do here
+				await bootstrap()
+				// Artificially delay for two seconds to simulate a slow loading
+				// experience. Please remove this if you copy and paste the code!
+				await new Promise((resolve) => setTimeout(resolve, 2000))
+			} catch (e) {
+				console.warn(e)
+			} finally {
+				// Tell the application to render
+				setAppIsReady(true)
+				await SplashScreen.hideAsync()
+			}
+		}
+
+		prepare()
+	}, [])
+
+	async function getLocationPermission() {
+		if (appIsReady) {
+			const { status } = await Location.getForegroundPermissionsAsync()
+			if (status !== 'granted') {
+				const { status } = await Location.requestForegroundPermissionsAsync()
+				setLocation(() => status)
+			}
+			setLocation(() => status)
+		}
+	}
+
+	React.useEffect(() => {
+		getLocationPermission()
+	}, [appIsReady])
+
+	if (!appIsReady) {
+		return null
 	}
 
 	const Tab = createMaterialBottomTabNavigator()
@@ -58,7 +88,6 @@ export default function App() {
 					/>
 					<Tab.Screen
 						name="Map"
-						component={MapScreen}
 						options={{
 							tabBarLabel: 'Отметить на карте',
 							tabBarIcon: ({ color }) => (
@@ -69,7 +98,9 @@ export default function App() {
 								/>
 							),
 						}}
-					/>
+					>
+						{() => <MapScreen location={location} setLocation={setLocation} />}
+					</Tab.Screen>
 					<Tab.Screen
 						name="About"
 						component={AboutScreen}
