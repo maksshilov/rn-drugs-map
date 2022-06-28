@@ -14,6 +14,8 @@ import { MapScreen } from './src/screens/map-screen'
 import { AboutScreen } from './src/screens/about-screen'
 import { Header } from './src/components/Header'
 
+// last
+
 export default function App() {
 	const [isReady, setIsReady] = React.useState(false)
 
