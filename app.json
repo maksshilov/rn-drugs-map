@@ -20,7 +20,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package":"com.maksshilov.drugs_map",
+      "package":"com.alkogolizmunet.drugstop",
       "versionCode":1,
       "permissions":["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "CAMERA", "READ_EXTERNAL_STORAGE"],
       "adaptiveIcon": {
