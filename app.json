@@ -2,7 +2,7 @@
   "expo": {
     "name": "НаркоСтоп",
     "slug": "rn-drugs-map",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/adaptive-icon-new.png",
     "splash": {
@@ -20,9 +20,14 @@
       "supportsTablet": true
     },
     "android": {
-      "package":"com.alkogolizmunet.drugstop",
-      "versionCode":1,
-      "permissions":["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "CAMERA", "READ_EXTERNAL_STORAGE"],
+      "package": "com.alkogolizmunet.drugstop",
+      "versionCode": 2,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon-new.png",
         "backgroundColor": "#FFFFFF"
@@ -30,6 +35,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1f274d81-2fb5-4cf2-b6ff-b5978fbad42f"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
